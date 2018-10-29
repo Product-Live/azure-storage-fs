@@ -193,7 +193,7 @@ class AzureBlobFS {
       throw new Error('only flag "r", "w", and "wx" are supported');
     }
 
-    const { exists } = this._blobServicePromised.doesBlobExist(this.container, pathname)
+    const { exists } = await this._blobServicePromised.doesBlobExist(this.container, pathname);
 
     if (~flags.indexOf('x')) {
       if (exists) {
